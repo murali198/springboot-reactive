@@ -1,0 +1,14 @@
+spring:
+   application:
+      name: Order
+      
+server:
+   port: 9002
+   
+logging:
+   level:
+      root: WARN
+      com:
+         murali:
+            order: DEBUG  
+            
