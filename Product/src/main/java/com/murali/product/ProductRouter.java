@@ -18,11 +18,11 @@ public class ProductRouter {
 		return route(GET("/product").and(accept(MediaType.APPLICATION_JSON)), handler::getProduct)
 				.andRoute(GET("/product/{id}").and(accept(MediaType.APPLICATION_JSON)), handler::getProductById)
 				.andRoute(POST("/product").and(accept(MediaType.APPLICATION_JSON)).and(contentType(MediaType.APPLICATION_JSON)), handler::saveProduct)
-				.andRoute(PUT("/product").and(accept(MediaType.APPLICATION_JSON)).and(contentType(MediaType.APPLICATION_JSON)), handler::updateProduct)
+				.andRoute(PUT("/product/{id}").and(accept(MediaType.APPLICATION_JSON)).and(contentType(MediaType.APPLICATION_JSON)), handler::updateProduct)
 				.andRoute(DELETE("/product/{id}").and(accept(MediaType.APPLICATION_JSON)), handler::deleteProduct);
 	}
-/*	
-	@Bean
+	
+	/*@Bean
 	public RouterFunction<ServerResponse> routes(ProductHandler handler) {
 		return nest(path("/product"), 
 				nest(accept(MediaType.APPLICATION_JSON).or(contentType(MediaType.APPLICATION_JSON)), 

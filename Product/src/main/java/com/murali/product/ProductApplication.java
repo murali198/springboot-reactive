@@ -21,8 +21,8 @@ public class ProductApplication {
 	CommandLineRunner loadProduct(ProductRepository repository) {
 		return args -> {
 			Flux<Product> productFlux = Flux.just(
-					new Product(null, "Dell", "Dell Laptop", "Electronics", "Touchpad", "74000.00"),
-					new Product(null, "Lenova", "Lenova Laptop", "Electronics", "Y40", "47000.00"))
+					new Product(null, "Dell", "Electronics", "Touchpad", "74000.00", "Dell Laptop"),
+					new Product(null, "Lenova", "Electronics", "Y40", "47000.00", "Lenova Laptop"))
 					.flatMap(repository::save);
 			
 			productFlux.thenMany(repository.findAll()).subscribe(System.out::println);
