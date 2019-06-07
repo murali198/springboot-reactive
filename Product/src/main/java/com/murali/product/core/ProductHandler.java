@@ -79,7 +79,6 @@ public class ProductHandler {
 					
 					return existingProductMono.zipWith(productMono, 
 							(existingProduct, product) -> new Product(existingProduct.getId(), product.getName(), product.getCategory(),product.getProductId(), product.getPrice(), product.getDescription()))
-		
 							.flatMap(product -> ServerResponse.ok()
 									.contentType(MediaType.APPLICATION_JSON)
 									.body(repository.save(product), Product.class))

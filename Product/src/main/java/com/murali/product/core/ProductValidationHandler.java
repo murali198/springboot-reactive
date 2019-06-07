@@ -11,9 +11,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
 @Component
+@Slf4j
 public class ProductValidationHandler {
 
 	private Validator validator;
@@ -28,6 +30,7 @@ public class ProductValidationHandler {
 				.flatMap(
 					obj -> {
 						Set<ConstraintViolation<T>> errors = validator.validate(obj);
+						log.debug("Validated obj["+ obj.getClass() + "] and is error empty ["+errors.isEmpty()+"]");
 						if(errors.isEmpty())
 							return fun.apply(Mono.just(obj));
 						throw new ConstraintViolationException(errors);

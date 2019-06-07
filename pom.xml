@@ -46,7 +46,7 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<repositories>
+	<!-- <repositories>
 		<repository>
 			<id>sella</id>
 			<name>Sella Nexus</name>
@@ -60,7 +60,7 @@
 			<name>Sella Nexus</name>
 			<url>https://artifactrepository.bansel.it/nexus/content/groups/public</url>
 		</pluginRepository>
-	</pluginRepositories>
+	</pluginRepositories> -->
 
 	<modules>
 		<module>Customer</module>
