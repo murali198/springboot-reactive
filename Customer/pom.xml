@@ -52,6 +52,11 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.murali</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 
 		<!-- test dependecies -->
 		<dependency>
@@ -65,7 +70,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- local embeded dependecies -->
+		<!-- local embeded postgres dependecies -->
 		<dependency>
 			<groupId>ru.yandex.qatools.embed</groupId>
 			<artifactId>postgresql-embedded</artifactId>

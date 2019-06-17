@@ -63,6 +63,7 @@
 	</pluginRepositories> -->
 
 	<modules>
+		<module>Common</module>
 		<module>Customer</module>
 		<module>Product</module>
 		<module>Order</module>

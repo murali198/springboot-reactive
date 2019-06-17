@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.murali.common.exception.ResourceNotFoundException;
 import com.murali.customer.entity.Customer;
 import com.murali.customer.repo.CustomerRepository;
 
@@ -30,7 +31,7 @@ public class CustomerController {
     @GetMapping("/customer/{id}")
     public Customer getProduct(@PathVariable("id") Long id) {
     	log.debug("Getting the Customer with id ["+ id +"]");
-    	Customer customer = repository.findById(id).orElse(new Customer(-1L, "Not Available", "Not avilable", "Not avilable", "Not avilable"));
+    	Customer customer = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Customer not found"));
         return customer;
     }
 

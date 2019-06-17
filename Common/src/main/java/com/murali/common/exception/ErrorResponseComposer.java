@@ -1,4 +1,4 @@
-package com.murali.product.exception;
+package com.murali.common.exception;
 
 import java.util.List;
 import java.util.Map;
@@ -10,11 +10,10 @@ import org.springframework.core.annotation.AnnotationAwareOrderComparator;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import com.murali.product.exception.handler.AbstractExceptionHandler;
+import com.murali.common.exception.handler.AbstractExceptionHandler;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Component
 @Slf4j
 public class ErrorResponseComposer<T extends Throwable> {
 	
