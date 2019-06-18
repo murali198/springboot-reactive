@@ -1,13 +1,5 @@
-package com.murali.customer.entity;
+package com.murali.customer.type;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
@@ -23,22 +15,23 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-public class Customer {
+public class CustomerEvent {
 	
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@NotEmpty
 	private String customerId;
+	
 	@NotEmpty
 	private String name;
+	
 	private String surName;
+	
 	@NotEmpty
 	private String email;
+	
 	@NotEmpty
 	private String mobile;
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Address> address;
 	
+	private String action;
 }

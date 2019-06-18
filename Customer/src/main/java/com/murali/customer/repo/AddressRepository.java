@@ -6,4 +6,5 @@ import com.murali.customer.entity.Address;
 
 public interface AddressRepository extends JpaRepository<Address, Long> {
 
+	
 }

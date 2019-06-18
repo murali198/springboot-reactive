@@ -14,7 +14,6 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import de.flapdoodle.embed.process.runtime.Network;
 import ru.yandex.qatools.embed.postgresql.PostgresExecutable;
 import ru.yandex.qatools.embed.postgresql.PostgresProcess;
 import ru.yandex.qatools.embed.postgresql.PostgresStarter;
@@ -28,9 +27,6 @@ public class PostgresEmbedeDbConfig {
 	
 	private static final List<String> DEFAULT_ADDITIONAL_INIT_DB_PARAMS = Arrays.asList("--nosync");
 	
-	/**
-	 *config the PostgresConfig configuration which will be used to get the needed host, port..
-	 */
 	@Bean
 	@DependsOn("postgresProcess")
 	public DataSource dataSource(PostgresConfig config) {
@@ -42,9 +38,6 @@ public class PostgresEmbedeDbConfig {
 		return ds;
 	}
 	
-	/**
-	 *  PostgresConfig that contains embedded db configuration like user name , password
-	 */
 	@Bean
 	public PostgresConfig postgresConfig() throws IOException {
 		// make it readable from configuration source file or system , it is hard coded here for explanation purpose only
@@ -58,9 +51,6 @@ public class PostgresEmbedeDbConfig {
 		return postgresConfig;
 	}
 	
-	/**
-	 * config the PostgresConfig configuration to use to start Postgres db process
-	 */
 	@Bean(destroyMethod = "stop")
 	public PostgresProcess postgresProcess(PostgresConfig config) throws IOException {
 		PostgresStarter<PostgresExecutable, PostgresProcess> runtime = PostgresStarter.getDefaultInstance();

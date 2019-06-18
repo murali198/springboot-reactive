@@ -37,18 +37,18 @@ public class CustomerApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Iterable<Customer> custList =  Arrays.asList(
-				Customer.builder().customerId("101").name("Murali").surName("P").email("murali@gmail.com").address(
+				Customer.builder().customerId("101").name("Murali").surName("P").mobile("9789019878").email("murali@gmail.com").address(
 						Arrays.asList(
 								Address.builder().city("chennai").country("India").number("9/10").street("Palaniyappa Street").name("Gray").build(),
 								Address.builder().city("chennai").country("India").number("1/44").street("Devikarumari Street").name("Raja").build()
 						)
 				).build(),
-				Customer.builder().customerId("102").name("Raja").surName("Guru").email("raja@gmail.com").address(
+				Customer.builder().customerId("102").name("Raja").surName("Guru").mobile("1236598745").email("raja@gmail.com").address(
 						Arrays.asList(
 								Address.builder().city("Chennai").country("India").number("9/10").street("Periyar Street").name("Gray").build()
 						)
 				).build(),
-				Customer.builder().customerId("103").name("Muthu").surName("Kumaran").email("muthu@gmail.com").build()
+				Customer.builder().customerId("103").name("Muthu").surName("Kumaran").mobile("7895489652").email("muthu@gmail.com").build()
 		);
 		customerRepo.saveAll(custList);
 	}
